@@ -1,0 +1,12 @@
+[package]
+name = "dnf-wrapper"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "dnf"
+path = "src/main.rs"
+
+[dependencies]
+colored = "2"
+anyhow = "1"
