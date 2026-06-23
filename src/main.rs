@@ -3,6 +3,7 @@ use std::io::{self, Write};
 use std::process::{Command, Stdio};
 
 use anyhow::{Context, Result};
+use clap::{Parser, Subcommand};
 use colored::Colorize;
 
 #[derive(Debug)]
@@ -19,16 +20,24 @@ const KNOWN_ARCHES: &[&str] = &[
     "x86_64", "i686", "i386", "noarch", "aarch64", "armv7hl", "ppc64le", "s390x", "src",
 ];
 
-fn main() {
-    let args: Vec<String> = std::env::args().skip(1).collect();
-    let subcommand = args.first().map(String::as_str).unwrap_or("upgrade");
+#[derive(Parser)]
+#[command(name = "dnf", about = "dnf wrapper with improved upgrade output")]
+struct Cli {
+    #[command(subcommand)]
+    command: Commands,
+}
 
-    let result = match subcommand {
-        "upgrade" | "up" | "update" => run_upgrade_wrapper(),
-        _ => {
-            eprintln!("Usage: dnf [upgrade|up|update]");
-            std::process::exit(1);
-        }
+#[derive(Subcommand)]
+enum Commands {
+    #[command(alias = "up", alias = "update", about = "Upgrade all packages")]
+    Upgrade,
+}
+
+fn main() {
+    let cli = Cli::parse();
+
+    let result = match cli.command {
+        Commands::Upgrade => run_upgrade_wrapper(),
     };
 
     if let Err(e) = result {
