@@ -21,11 +21,26 @@ Only the changed segment of each version is highlighted (red → green); common 
 
 ## Install
 
+### From source (Cargo)
+
 ```sh
 cargo install --path .
 ```
 
 Installs `fnf` to `~/.cargo/bin/`. Make sure that's on your `PATH` before `/usr/bin`.
+
+### RPM package (Fedora)
+
+```sh
+# 1. Build source tarballs
+./pkg/make-sources.sh
+
+# 2. Build the RPM (requires rpmbuild and rust-packaging)
+rpmbuild -ba pkg/fnf.spec \
+  --define "_sourcedir $(pwd)/pkg" \
+  --define "_rpmdir $(pwd)/pkg/rpm" \
+  --define "_srcrpmdir $(pwd)/pkg/rpm"
+```
 
 ## Usage
 

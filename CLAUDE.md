@@ -18,6 +18,10 @@ cargo run -- upgrade           # run (aliases: up, update)
 cargo clippy                   # lint
 cargo test                     # run tests (none currently)
 cargo install --path .         # install to ~/.cargo/bin/fnf
+
+# RPM packaging
+./pkg/make-sources.sh          # produces pkg/fnf-<version>.tar.gz + vendor tarball
+rpmbuild -ba pkg/fnf.spec ...  # see README.md for full rpmbuild invocation
 ```
 
 Manual testing requires `dnf` on the system:
