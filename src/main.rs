@@ -74,7 +74,7 @@ fn run_upgrade_wrapper(show_arch: bool, show_command: bool) -> Result<()> {
             .chain(specs.iter().map(String::as_str))
             .collect::<Vec<_>>()
             .join(" ");
-        println!("{}", format!("==> Command: {cmd}").dimmed());
+        println!("{}", format!("\n==> Command: {cmd}").dimmed());
     }
 
     print!("\n{} ", "==> Proceed with upgrade? [Y/n]".bold());
