@@ -11,3 +11,4 @@ path = "src/main.rs"
 colored = "2"
 anyhow = "1"
 clap = { version = "4.6.1", features = ["derive"] }
+indicatif = "0.17"

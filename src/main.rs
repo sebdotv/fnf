@@ -1,9 +1,11 @@
-use std::io::{self, Write};
+use std::io::{self, BufRead, Write};
 use std::process::{Command, Stdio};
+use std::time::Duration;
 
 use anyhow::{Context, Result, bail};
 use clap::{Parser, Subcommand};
 use colored::Colorize;
+use indicatif::{ProgressBar, ProgressStyle};
 
 #[derive(Debug)]
 struct PackageUpdate {
@@ -14,6 +16,12 @@ struct PackageUpdate {
     old_repo: String,
     repo: String,
     download_size: u64,
+}
+
+#[derive(Default)]
+struct SizeInfo {
+    download: Option<u64>,
+    net_disk: Option<i64>,
 }
 
 const DNF: &str = "/usr/bin/dnf";
@@ -48,14 +56,14 @@ fn main() {
 }
 
 fn run_upgrade_wrapper(show_arch: bool) -> Result<()> {
-    let updates = check_updates().context("checking for updates")?;
+    let (updates, size_info) = check_updates().context("checking for updates")?;
 
     if updates.is_empty() {
         println!("{}", " :: System is up to date.".green().bold());
         return Ok(());
     }
 
-    display_updates(&updates, show_arch);
+    display_updates(&updates, show_arch, &size_info);
 
     print!("\n{} ", "==> Proceed with upgrade? [Y/n]".bold());
     io::stdout().flush()?;
@@ -73,15 +81,103 @@ fn run_upgrade_wrapper(show_arch: bool) -> Result<()> {
     Ok(())
 }
 
-fn check_updates() -> Result<Vec<PackageUpdate>> {
-    let output = Command::new(DNF)
+fn check_updates() -> Result<(Vec<PackageUpdate>, SizeInfo)> {
+    let mut child = Command::new(DNF)
         .args(["upgrade", "--assumeno", "--color=never"])
-        .stderr(Stdio::inherit())
-        .output()
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()
         .context("running dnf upgrade --assumeno")?;
 
+    let stderr = child.stderr.take().expect("stderr is piped");
+    let stderr_thread = std::thread::spawn(move || process_stderr(stderr));
+
+    let output = child
+        .wait_with_output()
+        .context("waiting for dnf upgrade --assumeno")?;
+
+    let size_info = stderr_thread
+        .join()
+        .expect("stderr thread panicked")
+        .context("processing dnf stderr")?;
+
     let stdout = String::from_utf8_lossy(&output.stdout);
-    parse_update_lines(&stdout).context("parsing dnf output")
+    let updates = parse_update_lines(&stdout).context("parsing dnf output")?;
+
+    Ok((updates, size_info))
+}
+
+fn process_stderr(stderr: impl std::io::Read) -> Result<SizeInfo> {
+    let reader = std::io::BufReader::new(stderr);
+    let mut size_info = SizeInfo::default();
+    let mut spinner: Option<ProgressBar> = None;
+
+    for line in reader.lines() {
+        let line = line.context("reading dnf stderr")?;
+        match line.as_str() {
+            "Updating and loading repositories:" => {
+                let pb = ProgressBar::new_spinner();
+                pb.set_style(
+                    ProgressStyle::default_spinner()
+                        .template("{spinner.cyan} {msg}")
+                        .unwrap(),
+                );
+                pb.set_message("Updating and loading repositories...");
+                pb.enable_steady_tick(Duration::from_millis(80));
+                spinner = Some(pb);
+            }
+            "Repositories loaded." => {
+                if let Some(pb) = spinner.take() {
+                    pb.finish_and_clear();
+                }
+            }
+            "Operation aborted by the user." => {}
+            s if s.starts_with("Total size of inbound packages is") => {
+                size_info.download = parse_download_line(s);
+            }
+            s if s.starts_with("After this operation,") => {
+                size_info.net_disk = parse_disk_line(s);
+            }
+            other => match &spinner {
+                Some(pb) => pb.println(other),
+                None => eprintln!("{other}"),
+            },
+        }
+    }
+
+    if let Some(pb) = spinner.take() {
+        pb.finish_and_clear();
+    }
+
+    Ok(size_info)
+}
+
+fn parse_download_line(line: &str) -> Option<u64> {
+    // "Total size of inbound packages is 53 MiB. Need to download 53 MiB."
+    let need_part = line.split(". ").nth(1)?;
+    let need_part = need_part.trim_end_matches('.');
+    let words: Vec<&str> = need_part.split_whitespace().collect();
+    if words.len() == 5 && words[..3] == ["Need", "to", "download"] {
+        parse_dnf_size(words[3], words[4]).ok()
+    } else {
+        None
+    }
+}
+
+fn parse_disk_line(line: &str) -> Option<i64> {
+    // "After this operation, 11 MiB extra will be used (install 275 MiB, remove 264 MiB)."
+    // "After this operation, 5 MiB will be freed (install 264 MiB, remove 269 MiB)."
+    let rest = line.strip_prefix("After this operation, ")?;
+    let words: Vec<&str> = rest.split_whitespace().collect();
+    if words.len() < 4 {
+        return None;
+    }
+    let bytes = parse_dnf_size(words[0], words[1]).ok()? as i64;
+    match &words[2..4] {
+        ["extra", "will"] => Some(bytes),
+        ["will", "be"] if words.get(4) == Some(&"freed") => Some(-bytes),
+        _ => None,
+    }
 }
 
 fn parse_update_lines(stdout: &str) -> Result<Vec<PackageUpdate>> {
@@ -203,18 +299,38 @@ fn highlight_diff(old: &str, new: &str) -> (String, String) {
 }
 
 fn shorten_repo(repo: &str) -> String {
-    // Hex transaction hashes (e.g. 19278be6a81040f5b6cbc7bacea5148e) are replaced
-    // with a short form like "19..8e" since they carry no useful meaning.
-    if repo.len() >= 20 && repo.chars().all(|c| c.is_ascii_hexdigit()) {
+    if repo.len() >= 20 && repo.bytes().all(|b| b.is_ascii_hexdigit()) {
         format!("{}..{}", &repo[..2], &repo[repo.len() - 2..])
     } else {
         repo.to_string()
     }
 }
 
-fn display_updates(updates: &[PackageUpdate], show_arch: bool) {
+fn display_updates(updates: &[PackageUpdate], show_arch: bool, size_info: &SizeInfo) {
     let count = updates.len();
-    let total_size = updates.iter().map(|u| u.download_size).sum();
+
+    let size_str = match (size_info.download, size_info.net_disk) {
+        (Some(dl), Some(disk)) => {
+            let disk_str = if disk >= 0 {
+                format!("+{}", format_size(disk as u64))
+            } else {
+                format!("-{}", format_size((-disk) as u64))
+            };
+            format!("{} download, {} disk", format_size(dl), disk_str)
+        }
+        (Some(dl), None) => format_size(dl),
+        (None, Some(disk)) => {
+            if disk >= 0 {
+                format!("+{} disk", format_size(disk as u64))
+            } else {
+                format!("-{} disk", format_size((-disk) as u64))
+            }
+        }
+        (None, None) => {
+            let total: u64 = updates.iter().map(|u| u.download_size).sum();
+            format_size(total)
+        }
+    };
 
     println!(
         "{}",
@@ -222,7 +338,7 @@ fn display_updates(updates: &[PackageUpdate], show_arch: bool) {
             " :: {} package{} to upgrade  ({})",
             count,
             if count == 1 { "" } else { "s" },
-            format_size(total_size),
+            size_str,
         )
         .cyan()
         .bold()
