@@ -67,6 +67,8 @@ fn run_upgrade_wrapper(show_arch: bool, show_command: bool) -> Result<()> {
 
     display_updates(&updates, show_arch, &size_info);
 
+    println!();
+
     if show_command {
         let specs = upgrade_specs(&updates);
         let cmd = std::iter::once(DNF)
@@ -77,7 +79,7 @@ fn run_upgrade_wrapper(show_arch: bool, show_command: bool) -> Result<()> {
         println!("{}", format!("==> Command: {cmd}").dimmed());
     }
 
-    print!("\n{} ", "==> Proceed with upgrade? [Y/n]".bold());
+    print!("{} ", "==> Proceed with upgrade? [Y/n]".bold());
     io::stdout().flush()?;
 
     let mut input = String::new();
