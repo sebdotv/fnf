@@ -7,7 +7,7 @@
 
 set -euo pipefail
 
-VERSION=$(cargo metadata --no-deps --format-version 1 | python3 -c 'import sys,json; print(json.load(sys.stdin)["packages"][0]["version"])')
+VERSION=$(grep '^version' Cargo.toml | head -1 | cut -d'"' -f2)
 ARCHIVE="fnf-${VERSION}"
 
 echo "==> Version: ${VERSION}"
