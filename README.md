@@ -68,3 +68,7 @@ cargo clippy          # lint
 
 - Fedora / RHEL-based system with `/usr/bin/dnf`
 - Rust toolchain (edition 2024)
+
+---
+
+This project was developed with the assistance of [Claude Code](https://claude.ai/code).
