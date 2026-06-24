@@ -18,10 +18,6 @@ struct PackageUpdate {
 
 const DNF: &str = "/usr/bin/dnf";
 
-const KNOWN_ARCHES: &[&str] = &[
-    "x86_64", "i686", "i386", "noarch", "aarch64", "armv7hl", "ppc64le", "s390x", "src",
-];
-
 #[derive(Parser)]
 #[command(name = "fnf", about = "Fancified YUM — dnf wrapper with improved upgrade output")]
 struct Cli {
@@ -49,21 +45,11 @@ fn main() {
 }
 
 fn run_upgrade_wrapper() -> Result<()> {
-    let (updates, exit_code) = check_updates().context("checking for updates")?;
-
-    if exit_code == 0 {
-        println!("{}", " :: System is up to date.".green().bold());
-        return Ok(());
-    }
-
-    if exit_code != 100 {
-        eprintln!("dnf check-update exited with code {exit_code}");
-        std::process::exit(exit_code);
-    }
+    let updates = check_updates().context("checking for updates")?;
 
     if updates.is_empty() {
-        eprintln!("Could not parse dnf output. Run 'dnf upgrade' directly.");
-        std::process::exit(1);
+        println!("{}", " :: System is up to date.".green().bold());
+        return Ok(());
     }
 
     display_updates(&updates);
@@ -84,120 +70,77 @@ fn run_upgrade_wrapper() -> Result<()> {
     Ok(())
 }
 
-fn check_updates() -> Result<(Vec<PackageUpdate>, i32)> {
+fn check_updates() -> Result<Vec<PackageUpdate>> {
     let output = Command::new(DNF)
-        .args(["check-update", "--color=never"])
+        .args(["upgrade", "--assumeno", "--color=never"])
         .stderr(Stdio::inherit())
         .output()
-        .context("running dnf check-update")?;
-
-    let exit_code = output.status.code().unwrap_or(1);
-    if exit_code != 100 {
-        return Ok((vec![], exit_code));
-    }
+        .context("running dnf upgrade --assumeno")?;
 
     let stdout = String::from_utf8_lossy(&output.stdout);
-    let installed = get_installed_versions().context("querying installed packages")?;
+    Ok(parse_update_lines(&stdout))
+}
 
-    let mut updates: Vec<PackageUpdate> = stdout
-        .lines()
-        .filter_map(|line| parse_update_line(line, &installed))
+fn parse_update_lines(stdout: &str) -> Vec<PackageUpdate> {
+    let mut updates: HashMap<String, PackageUpdate> = HashMap::new();
+    let mut in_upgrading = false;
+
+    for line in stdout.lines() {
+        if !line.starts_with(' ') {
+            in_upgrading = line.trim_end() == "Upgrading:";
+            continue;
+        }
+
+        if !in_upgrading {
+            continue;
+        }
+
+        if let Some(rest) = line.strip_prefix("   replacing ") {
+            let parts: Vec<&str> = rest.split_whitespace().collect();
+            if parts.len() >= 3 {
+                if let Some(u) = updates.get_mut(parts[0]) {
+                    u.old_version = normalize_version(parts[2]);
+                }
+            }
+        } else {
+            let parts: Vec<&str> = line.split_whitespace().collect();
+            if parts.len() >= 6 {
+                let key = parts[0].to_string();
+                updates.insert(
+                    key,
+                    PackageUpdate {
+                        name: parts[0].to_string(),
+                        arch: parts[1].to_string(),
+                        new_version: normalize_version(parts[2]),
+                        old_version: String::new(),
+                        repo: parts[3].to_string(),
+                        download_size: parse_dnf_size(parts[4], parts[5]),
+                    },
+                );
+            }
+        }
+    }
+
+    let mut updates: Vec<PackageUpdate> = updates
+        .into_values()
+        .filter(|u| !u.old_version.is_empty())
         .collect();
-
     updates.sort_by(|a, b| a.name.cmp(&b.name));
-
-    fetch_download_sizes(&mut updates).context("fetching download sizes")?;
-
-    Ok((updates, exit_code))
-}
-
-fn parse_update_line(line: &str, installed: &HashMap<String, String>) -> Option<PackageUpdate> {
-    let parts: Vec<&str> = line.split_whitespace().collect();
-    if parts.len() < 3 {
-        return None;
-    }
-
-    let pkg_arch = parts[0];
-    let new_version_raw = parts[1];
-    let repo = parts[2];
-
-    let dot_pos = pkg_arch.rfind('.')?;
-    let name = &pkg_arch[..dot_pos];
-    let arch = &pkg_arch[dot_pos + 1..];
-
-    if !KNOWN_ARCHES.contains(&arch) {
-        return None;
-    }
-
-    let new_version = normalize_version(new_version_raw);
-    let key = format!("{name}.{arch}");
-    let old_version = normalize_version(installed.get(&key)?);
-
-    Some(PackageUpdate {
-        name: name.to_string(),
-        arch: arch.to_string(),
-        old_version,
-        new_version,
-        repo: repo.to_string(),
-        download_size: 0,
-    })
-}
-
-fn get_installed_versions() -> Result<HashMap<String, String>> {
-    let output = Command::new("rpm")
-        .args([
-            "-qa",
-            "--queryformat",
-            "%{NAME}.%{ARCH} %{EPOCHNUM}:%{VERSION}-%{RELEASE}\n",
-        ])
-        .output()
-        .context("running rpm -qa")?;
-
-    let stdout = String::from_utf8_lossy(&output.stdout);
-    let map = stdout
-        .lines()
-        .filter_map(|line| line.split_once(' ').map(|(k, v)| (k.to_string(), v.to_string())))
-        .collect();
-
-    Ok(map)
-}
-
-fn fetch_download_sizes(updates: &mut Vec<PackageUpdate>) -> Result<()> {
-    if updates.is_empty() {
-        return Ok(());
-    }
-
-    let mut cmd = Command::new("dnf");
-    cmd.arg("repoquery")
-        .arg("--queryformat")
-        .arg("%{name}.%{arch} %{downloadsize}\n");
-
-    for u in updates.iter() {
-        cmd.arg(format!("{}-{}.{}", u.name, u.new_version, u.arch));
-    }
-
-    let output = cmd.output().context("running dnf repoquery")?;
-    let stdout = String::from_utf8_lossy(&output.stdout);
-
-    let sizes: HashMap<String, u64> = stdout
-        .lines()
-        .filter_map(|line| {
-            let (pkg, size_str) = line.split_once(' ')?;
-            let size = size_str.parse().ok()?;
-            Some((pkg.to_string(), size))
-        })
-        .collect();
-
-    for u in updates.iter_mut() {
-        let key = format!("{}.{}", u.name, u.arch);
-        u.download_size = sizes.get(&key).copied().unwrap_or(0);
-    }
-
-    Ok(())
+    updates
 }
 
 fn normalize_version(v: &str) -> String {
     v.strip_prefix("0:").unwrap_or(v).to_string()
+}
+
+fn parse_dnf_size(number: &str, unit: &str) -> u64 {
+    let n: f64 = number.parse().unwrap_or(0.0);
+    match unit {
+        "GiB" => (n * (1u64 << 30) as f64) as u64,
+        "MiB" => (n * (1u64 << 20) as f64) as u64,
+        "KiB" => (n * (1u64 << 10) as f64) as u64,
+        _ => n as u64,
+    }
 }
 
 fn format_size(bytes: u64) -> String {
