@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Prepend a new %changelog entry in pkg/fnf.spec for the upcoming release.
-# Invoked by cargo-release as pre_release_hook; receives CARGO_RELEASE_NEXT_VERSION.
+# Invoked by cargo-release as pre_release_hook; receives NEW_VERSION.
 
 set -euo pipefail
 
-VERSION="${CARGO_RELEASE_NEXT_VERSION:?}"
+VERSION="${NEW_VERSION:?}"
 DATE=$(date +"%a %b %d %Y")
 EMAIL="sebdotv@gmail.com"
 SPEC="pkg/fnf.spec"
