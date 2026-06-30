@@ -1,0 +1,453 @@
+Package                                              Arch   Version                      Repository                  Size
+Removing:
+ kernel                                              x86_64 0:7.0.10-201.fc44            updates                  0.0   B
+ kernel-core                                         x86_64 0:7.0.10-201.fc44            updates                 99.1 MiB
+ kernel-devel                                        x86_64 0:7.0.10-201.fc44            updates                 86.5 MiB
+ kernel-modules                                      x86_64 0:7.0.10-201.fc44            updates                 99.5 MiB
+ kernel-modules-core                                 x86_64 0:7.0.10-201.fc44            updates                 72.9 MiB
+ kernel-modules-extra                                x86_64 0:7.0.10-201.fc44            updates                  4.4 MiB
+Upgrading:
+ 7zip                                                x86_64 0:26.01-1.fc44               updates                  3.3 MiB
+   replacing 7zip                                    x86_64 0:25.01-5.fc44               <unknown>                3.3 MiB
+ PackageKit                                          x86_64 0:1.3.6-1.fc44               updates                  3.6 MiB
+   replacing PackageKit                              x86_64 0:1.3.4-3.fc44               <unknown>                3.4 MiB
+ PackageKit-command-not-found                        x86_64 0:1.3.6-1.fc44               updates                 34.9 KiB
+   replacing PackageKit-command-not-found            x86_64 0:1.3.4-3.fc44               <unknown>               34.9 KiB
+ PackageKit-glib                                     x86_64 0:1.3.6-1.fc44               updates                532.7 KiB
+   replacing PackageKit-glib                         x86_64 0:1.3.4-3.fc44               <unknown>              532.6 KiB
+ PackageKit-gstreamer-plugin                         x86_64 0:1.3.6-1.fc44               updates                 23.6 KiB
+   replacing PackageKit-gstreamer-plugin             x86_64 0:1.3.4-3.fc44               <unknown>               23.6 KiB
+ PackageKit-gtk3-module                              x86_64 0:1.3.6-1.fc44               updates                 19.5 KiB
+   replacing PackageKit-gtk3-module                  x86_64 0:1.3.4-3.fc44               <unknown>               19.5 KiB
+ alsa-lib                                            x86_64 0:1.2.16.1-1.fc44            updates                  1.5 MiB
+   replacing alsa-lib                                x86_64 0:1.2.16-2.fc44              updates                  1.5 MiB
+ alsa-ucm                                            noarch 0:1.2.16.1-1.fc44            updates                686.7 KiB
+   replacing alsa-ucm                                noarch 0:1.2.16-2.fc44              updates                684.2 KiB
+ audacity                                            x86_64 0:3.7.8-1.fc44               updates                 43.9 MiB
+   replacing audacity                                x86_64 0:3.7.7-5.fc44               fedora                  42.0 MiB
+ bcompare                                            x86_64 0:5.2.3-32296                scootersoftware         72.5 MiB
+   replacing bcompare                                x86_64 0:5.2.2-32209                scootersoftware         72.5 MiB
+ bind-libs                                           x86_64 32:9.18.50-1.fc44            updates                  3.7 MiB
+   replacing bind-libs                               x86_64 32:9.18.49-1.fc44            updates                  3.7 MiB
+ bind-utils                                          x86_64 32:9.18.50-1.fc44            updates                660.0 KiB
+   replacing bind-utils                              x86_64 32:9.18.49-1.fc44            updates                660.0 KiB
+ bluez                                               x86_64 0:5.86-5.fc44                updates                  3.8 MiB
+   replacing bluez                                   x86_64 0:5.86-4.fc44                <unknown>                3.8 MiB
+ bluez-cups                                          x86_64 0:5.86-5.fc44                updates                 47.9 KiB
+   replacing bluez-cups                              x86_64 0:5.86-4.fc44                <unknown>               47.9 KiB
+ bluez-libs                                          x86_64 0:5.86-5.fc44                updates                202.2 KiB
+   replacing bluez-libs                              x86_64 0:5.86-4.fc44                <unknown>              202.2 KiB
+ bluez-obexd                                         x86_64 0:5.86-5.fc44                updates                358.6 KiB
+   replacing bluez-obexd                             x86_64 0:5.86-4.fc44                <unknown>              358.6 KiB
+ chromium                                            x86_64 0:149.0.7827.200-1.fc44      updates                325.0 MiB
+   replacing chromium                                x86_64 0:149.0.7827.102-1.fc44      updates                324.9 MiB
+ chromium-common                                     x86_64 0:149.0.7827.200-1.fc44      updates                 71.3 MiB
+   replacing chromium-common                         x86_64 0:149.0.7827.102-1.fc44      updates                 71.3 MiB
+ cifs-utils                                          x86_64 0:7.6-1.fc44                 updates                278.5 KiB
+   replacing cifs-utils                              x86_64 0:7.5-1.fc44                 <unknown>              274.4 KiB
+ cifs-utils-info                                     x86_64 0:7.6-1.fc44                 updates                 41.4 KiB
+   replacing cifs-utils-info                         x86_64 0:7.5-1.fc44                 <unknown>               38.2 KiB
+ clang-libs                                          x86_64 0:22.1.8-1.fc44              updates                109.8 MiB
+   replacing clang-libs                              x86_64 0:22.1.7-1.fc44              updates                109.8 MiB
+ clang-resource-filesystem                           x86_64 0:22.1.8-1.fc44              updates                 15.3 KiB
+   replacing clang-resource-filesystem               x86_64 0:22.1.7-1.fc44              updates                 15.3 KiB
+ cockpit-bridge                                      noarch 0:364-1.fc44                 updates                  2.1 MiB
+   replacing cockpit-bridge                          noarch 0:362-1.fc44                 updates                  2.1 MiB
+ cockpit-networkmanager                              noarch 0:364-1.fc44                 updates                920.4 KiB
+   replacing cockpit-networkmanager                  noarch 0:362-1.fc44                 updates                884.5 KiB
+ cockpit-storaged                                    noarch 0:364-1.fc44                 updates                908.1 KiB
+   replacing cockpit-storaged                        noarch 0:362-1.fc44                 updates                873.6 KiB
+ cockpit-system                                      noarch 0:364-1.fc44                 updates                  3.3 MiB
+   replacing cockpit-system                          noarch 0:362-1.fc44                 updates                  3.1 MiB
+ cockpit-ws                                          x86_64 0:364-1.fc44                 updates                  1.9 MiB
+   replacing cockpit-ws                              x86_64 0:362-1.fc44                 updates                  1.9 MiB
+ cockpit-ws-selinux                                  x86_64 0:364-1.fc44                 updates                 44.9 KiB
+   replacing cockpit-ws-selinux                      x86_64 0:362-1.fc44                 updates                 44.9 KiB
+ code                                                x86_64 0:1.126.0-1782208129.el8     code                   855.4 MiB
+   replacing code                                    x86_64 0:1.124.2-1781225578.el8     code                   777.0 MiB
+ compiler-rt                                         x86_64 0:22.1.8-1.fc44              updates                 41.3 MiB
+   replacing compiler-rt                             x86_64 0:22.1.7-1.fc44              updates                 41.3 MiB
+ containerd.io                                       x86_64 0:2.2.5-1.fc44               docker-ce-stable       120.4 MiB
+   replacing containerd.io                           x86_64 0:2.2.4-1.fc44               docker-ce-stable       120.4 MiB
+ device-mapper-persistent-data                       x86_64 0:1.3.3-1.fc44               updates                  2.9 MiB
+   replacing device-mapper-persistent-data           x86_64 0:1.3.2-1.fc44               updates                  2.9 MiB
+ dmidecode                                           x86_64 1:3.7-1.fc44                 updates                235.1 KiB
+   replacing dmidecode                               x86_64 1:3.6-9.fc44                 <unknown>              230.6 KiB
+ docker-buildx-plugin                                x86_64 0:0.35.0-1.fc44              docker-ce-stable        69.1 MiB
+   replacing docker-buildx-plugin                    x86_64 0:0.34.1-1.fc44              docker-ce-stable        69.0 MiB
+ docker-ce                                           x86_64 3:29.6.1-1.fc44              docker-ce-stable       104.3 MiB
+   replacing docker-ce                               x86_64 3:29.5.3-1.fc44              docker-ce-stable       102.7 MiB
+ docker-ce-cli                                       x86_64 1:29.6.1-1.fc44              docker-ce-stable        35.1 MiB
+   replacing docker-ce-cli                           x86_64 1:29.5.3-1.fc44              docker-ce-stable        34.8 MiB
+ docker-ce-rootless-extras                           x86_64 0:29.6.1-1.fc44              docker-ce-stable        20.1 MiB
+   replacing docker-ce-rootless-extras               x86_64 0:29.5.3-1.fc44              docker-ce-stable        20.1 MiB
+ docker-compose-plugin                               x86_64 0:5.2.0-1.fc44               docker-ce-stable        31.0 MiB
+   replacing docker-compose-plugin                   x86_64 0:5.1.4-1.fc44               docker-ce-stable        31.4 MiB
+ edk2-ovmf                                           noarch 0:20260508-4.fc44            updates                 45.4 MiB
+   replacing edk2-ovmf                               noarch 0:20260508-2.fc44            updates                 45.4 MiB
+ edk2-shell-x64                                      noarch 0:20260508-4.fc44            updates                  1.2 MiB
+   replacing edk2-shell-x64                          noarch 0:20260508-2.fc44            updates                  1.2 MiB
+ exfatprogs                                          x86_64 0:1.4.2-2.fc44               updates                376.7 KiB
+   replacing exfatprogs                              x86_64 0:1.4.1-1.fc44               updates                376.6 KiB
+ ffmpeg                                              x86_64 0:8.1.2-1.fc44               rpmfusion-free-updates   2.6 MiB
+   replacing ffmpeg                                  x86_64 0:8.1.1-1.fc44               rpmfusion-free-updates   2.6 MiB
+ ffmpeg-libs                                         x86_64 0:8.1.2-1.fc44               rpmfusion-free-updates  23.1 MiB
+   replacing ffmpeg-libs                             x86_64 0:8.1.1-1.fc44               rpmfusion-free-updates  23.1 MiB
+ firefox                                             x86_64 0:152.0-1.fc44               updates                278.7 MiB
+   replacing firefox                                 x86_64 0:151.0.3-1.fc44             updates                274.9 MiB
+ firefox-langpacks                                   x86_64 0:152.0-1.fc44               updates                 43.4 MiB
+   replacing firefox-langpacks                       x86_64 0:151.0.3-1.fc44             updates                 43.2 MiB
+ flatpak-builder                                     x86_64 0:1.4.10-1.fc44              updates                600.8 KiB
+   replacing flatpak-builder                         x86_64 0:1.4.9-1.fc44               updates                592.6 KiB
+ freerdp-libs                                        x86_64 2:3.27.1-1.fc44              updates                  3.7 MiB
+   replacing freerdp-libs                            x86_64 2:3.26.0-4.fc44              updates                  3.7 MiB
+ gh                                                  x86_64 0:2.95.0-1                   gh-cli                  39.2 MiB
+   replacing gh                                      x86_64 0:2.94.0-1.fc44              updates                 39.2 MiB
+ glib2                                               x86_64 0:2.88.2-1.fc44              updates                 15.3 MiB
+   replacing glib2                                   x86_64 0:2.88.1-1.fc44              updates                 15.3 MiB
+ glusterfs                                           x86_64 0:11.2-8.fc44                updates                  2.5 MiB
+   replacing glusterfs                               x86_64 0:11.2-5.fc44                <unknown>                2.5 MiB
+ glusterfs-cli                                       x86_64 0:11.2-8.fc44                updates                472.6 KiB
+   replacing glusterfs-cli                           x86_64 0:11.2-5.fc44                <unknown>              472.7 KiB
+ glusterfs-client-xlators                            x86_64 0:11.2-8.fc44                updates                  3.3 MiB
+   replacing glusterfs-client-xlators                x86_64 0:11.2-5.fc44                <unknown>                3.3 MiB
+ glusterfs-fuse                                      x86_64 0:11.2-8.fc44                updates                528.6 KiB
+   replacing glusterfs-fuse                          x86_64 0:11.2-5.fc44                <unknown>              528.7 KiB
+ gnome-control-center                                x86_64 0:50.3-1.fc44                updates                 23.8 MiB
+   replacing gnome-control-center                    x86_64 0:50.1-1.fc44                <unknown>               23.5 MiB
+ gnome-control-center-filesystem                     noarch 0:50.3-1.fc44                updates                  0.0   B
+   replacing gnome-control-center-filesystem         noarch 0:50.1-1.fc44                <unknown>                0.0   B
+ gnome-software                                      x86_64 0:50.3-1.fc44                updates                 12.4 MiB
+   replacing gnome-software                          x86_64 0:50.2-2.fc44                updates                 12.4 MiB
+ gnome-software-fedora-langpacks                     x86_64 0:50.3-1.fc44                updates                 47.4 KiB
+   replacing gnome-software-fedora-langpacks         x86_64 0:50.2-2.fc44                updates                 47.4 KiB
+ google-cloud-cli                                    x86_64 0:574.0.0-1.el10             google-cloud-cli       437.9 MiB
+   replacing google-cloud-cli                        x86_64 0:572.0.0-1.el10             google-cloud-cli       434.5 MiB
+ google-cloud-cli-anthoscli                          x86_64 0:574.0.0-1.el10             google-cloud-cli       139.2 MiB
+   replacing google-cloud-cli-anthoscli              x86_64 0:572.0.0-1.el10             google-cloud-cli       139.2 MiB
+ gspell                                              x86_64 0:1.14.4-1.fc44              updates                355.4 KiB
+   replacing gspell                                  x86_64 0:1.14.3-1.fc44              <unknown>              352.4 KiB
+ gst-editing-services                                x86_64 0:1.28.4-1.fc44              updates                  1.4 MiB
+   replacing gst-editing-services                    x86_64 0:1.28.3-1.fc44              updates                  1.4 MiB
+ gstreamer1                                          x86_64 0:1.28.4-1.fc44              updates                  5.4 MiB
+   replacing gstreamer1                              x86_64 0:1.28.3-1.fc44              updates                  5.4 MiB
+ gstreamer1-plugin-gtk4                              x86_64 0:0.15.2-1.fc44              updates                813.5 KiB
+   replacing gstreamer1-plugin-gtk4                  x86_64 0:0.15.0-1.fc44              <unknown>              817.8 KiB
+ gstreamer1-plugin-libav                             x86_64 0:1.28.4-1.fc44              updates                332.7 KiB
+   replacing gstreamer1-plugin-libav                 x86_64 0:1.28.3-1.fc44              updates                331.5 KiB
+ gstreamer1-plugin-openh264                          x86_64 0:1.28.4-1.fc44              updates                 68.2 KiB
+   replacing gstreamer1-plugin-openh264              x86_64 0:1.28.3-2.fc44              updates                 68.2 KiB
+ gstreamer1-plugins-bad-free                         x86_64 0:1.28.4-1.fc44              updates                 10.2 MiB
+   replacing gstreamer1-plugins-bad-free             x86_64 0:1.28.3-2.fc44              updates                 10.2 MiB
+ gstreamer1-plugins-bad-free-libs                    x86_64 0:1.28.4-1.fc44              updates                  3.6 MiB
+   replacing gstreamer1-plugins-bad-free-libs        x86_64 0:1.28.3-2.fc44              updates                  3.6 MiB
+ gstreamer1-plugins-base                             x86_64 0:1.28.4-1.fc44              updates                  7.5 MiB
+   replacing gstreamer1-plugins-base                 x86_64 0:1.28.3-1.fc44              updates                  7.5 MiB
+ gstreamer1-plugins-good                             x86_64 0:1.28.4-1.fc44              updates                  7.5 MiB
+   replacing gstreamer1-plugins-good                 x86_64 0:1.28.3-2.fc44              updates                  7.5 MiB
+ gstreamer1-plugins-good-gtk                         x86_64 0:1.28.4-1.fc44              updates                 64.1 KiB
+   replacing gstreamer1-plugins-good-gtk             x86_64 0:1.28.3-2.fc44              updates                 64.1 KiB
+ gstreamer1-plugins-good-qt                          x86_64 0:1.28.4-1.fc44              updates                194.0 KiB
+   replacing gstreamer1-plugins-good-qt              x86_64 0:1.28.3-2.fc44              updates                194.0 KiB
+ gstreamer1-plugins-good-qt6                         x86_64 0:1.28.4-1.fc44              updates                223.8 KiB
+   replacing gstreamer1-plugins-good-qt6             x86_64 0:1.28.3-2.fc44              updates                223.8 KiB
+ gstreamer1-plugins-ugly-free                        x86_64 0:1.28.4-1.fc44              updates                569.8 KiB
+   replacing gstreamer1-plugins-ugly-free            x86_64 0:1.28.3-1.fc44              updates                565.8 KiB
+ gtkmm3.0                                            x86_64 0:3.24.11-1.fc44             updates                  5.1 MiB
+   replacing gtkmm3.0                                x86_64 0:3.24.10-3.fc44             <unknown>                5.1 MiB
+ gupnp                                               x86_64 0:1.6.10-1.fc44              updates                311.9 KiB
+   replacing gupnp                                   x86_64 0:1.6.9-3.fc44               <unknown>              311.9 KiB
+ gvfs                                                x86_64 0:1.60.1-1.fc44              updates                  1.2 MiB
+   replacing gvfs                                    x86_64 0:1.60.0-1.fc44              <unknown>                1.2 MiB
+ gvfs-afc                                            x86_64 0:1.60.1-1.fc44              updates                153.4 KiB
+   replacing gvfs-afc                                x86_64 0:1.60.0-1.fc44              <unknown>              153.5 KiB
+ gvfs-afp                                            x86_64 0:1.60.1-1.fc44              updates                195.5 KiB
+   replacing gvfs-afp                                x86_64 0:1.60.0-1.fc44              <unknown>              191.5 KiB
+ gvfs-archive                                        x86_64 0:1.60.1-1.fc44              updates                 39.8 KiB
+   replacing gvfs-archive                            x86_64 0:1.60.0-1.fc44              <unknown>               39.8 KiB
+ gvfs-client                                         x86_64 0:1.60.1-1.fc44              updates                  4.2 MiB
+   replacing gvfs-client                             x86_64 0:1.60.0-1.fc44              <unknown>                4.2 MiB
+ gvfs-fuse                                           x86_64 0:1.60.1-1.fc44              updates                 49.7 KiB
+   replacing gvfs-fuse                               x86_64 0:1.60.0-1.fc44              <unknown>               49.7 KiB
+ gvfs-goa                                            x86_64 0:1.60.1-1.fc44              updates                162.2 KiB
+   replacing gvfs-goa                                x86_64 0:1.60.0-1.fc44              <unknown>              162.2 KiB
+ gvfs-gphoto2                                        x86_64 0:1.60.1-1.fc44              updates                161.7 KiB
+   replacing gvfs-gphoto2                            x86_64 0:1.60.0-1.fc44              <unknown>              161.7 KiB
+ gvfs-mtp                                            x86_64 0:1.60.1-1.fc44              updates                169.8 KiB
+   replacing gvfs-mtp                                x86_64 0:1.60.0-1.fc44              <unknown>              169.7 KiB
+ gvfs-smb                                            x86_64 0:1.60.1-1.fc44              updates                100.1 KiB
+   replacing gvfs-smb                                x86_64 0:1.60.0-1.fc44              <unknown>              100.1 KiB
+ hplip                                               x86_64 0:3.26.4-6.fc44              updates                 29.9 MiB
+   replacing hplip                                   x86_64 0:3.26.4-2.fc44              updates                 29.9 MiB
+ hplip-common                                        x86_64 0:3.26.4-6.fc44              updates                  1.5 MiB
+   replacing hplip-common                            x86_64 0:3.26.4-2.fc44              updates                  1.5 MiB
+ hplip-libs                                          x86_64 0:3.26.4-6.fc44              updates                444.4 KiB
+   replacing hplip-libs                              x86_64 0:3.26.4-2.fc44              updates                444.4 KiB
+ hunspell                                            x86_64 0:1.7.3-1.fc44               updates                  1.6 MiB
+   replacing hunspell                                x86_64 0:1.7.2-11.fc44              <unknown>                1.4 MiB
+ hunspell-filesystem                                 x86_64 0:1.7.3-1.fc44               updates                  0.0   B
+   replacing hunspell-filesystem                     x86_64 0:1.7.2-11.fc44              <unknown>                0.0   B
+ ibus-typing-booster                                 noarch 0:2.30.10-1.fc44             updates                  9.2 MiB
+   replacing ibus-typing-booster                     noarch 0:2.30.9-1.fc44              updates                  9.2 MiB
+ igvm-libs                                           x86_64 0:0.4.0-10.fc44              updates                463.4 KiB
+   replacing igvm-libs                               x86_64 0:0.4.0-9.fc44               <unknown>              475.2 KiB
+ iptstate                                            x86_64 0:2.3.0-1.fc44               updates                103.7 KiB
+   replacing iptstate                                x86_64 0:2.2.7-11.fc44              <unknown>              103.0 KiB
+ kernel-devel-matched                                x86_64 0:7.0.13-200.fc44            updates                  0.0   B
+   replacing kernel-devel-matched                    x86_64 0:7.0.12-201.fc44            updates                  0.0   B
+ kernel-tools                                        x86_64 0:7.0.13-200.fc44            updates                859.3 KiB
+   replacing kernel-tools                            x86_64 0:7.0.12-201.fc44            updates                859.3 KiB
+ kernel-tools-libs                                   x86_64 0:7.0.13-200.fc44            updates                 30.2 KiB
+   replacing kernel-tools-libs                       x86_64 0:7.0.12-201.fc44            updates                 30.2 KiB
+ langtable                                           noarch 0:0.0.71-1.fc44              updates                243.0 KiB
+   replacing langtable                               noarch 0:0.0.70-1.fc44              <unknown>              242.5 KiB
+ libavdevice                                         x86_64 0:8.1.2-1.fc44               rpmfusion-free-updates 133.8 KiB
+   replacing libavdevice                             x86_64 0:8.1.1-1.fc44               rpmfusion-free-updates 133.8 KiB
+ libblkid                                            x86_64 0:2.41.5-1.fc44              updates                274.3 KiB
+   replacing libblkid                                x86_64 0:2.41.4-8.fc44              updates                274.3 KiB
+ libfdisk                                            x86_64 0:2.41.5-1.fc44              updates                388.3 KiB
+   replacing libfdisk                                x86_64 0:2.41.4-8.fc44              updates                388.3 KiB
+ libfprint                                           x86_64 0:1.94.10-5.fc44             updates                877.4 KiB
+   replacing libfprint                               x86_64 0:1.94.10-1.fc44             <unknown>              852.4 KiB
+ libgfapi0                                           x86_64 0:11.2-8.fc44                updates                229.6 KiB
+   replacing libgfapi0                               x86_64 0:11.2-5.fc44                <unknown>              230.0 KiB
+ libgfrpc0                                           x86_64 0:11.2-8.fc44                updates                224.3 KiB
+   replacing libgfrpc0                               x86_64 0:11.2-5.fc44                <unknown>              224.4 KiB
+ libgfxdr0                                           x86_64 0:11.2-8.fc44                updates                 50.8 KiB
+   replacing libgfxdr0                               x86_64 0:11.2-5.fc44                <unknown>               50.8 KiB
+ libglusterfs0                                       x86_64 0:11.2-8.fc44                updates                922.2 KiB
+   replacing libglusterfs0                           x86_64 0:11.2-5.fc44                <unknown>              922.8 KiB
+ liblastlog2                                         x86_64 0:2.41.5-1.fc44              updates                 41.6 KiB
+   replacing liblastlog2                             x86_64 0:2.41.4-8.fc44              updates                 41.6 KiB
+ libmodulemd                                         x86_64 0:2.15.3-1.fc44              updates                690.4 KiB
+   replacing libmodulemd                             x86_64 0:2.15.2-7.fc44              <unknown>              689.7 KiB
+ libmount                                            x86_64 0:2.41.5-1.fc44              updates                392.6 KiB
+   replacing libmount                                x86_64 0:2.41.4-8.fc44              updates                388.5 KiB
+ libnfsidmap                                         x86_64 1:2.8.7-5.fc44               updates                170.1 KiB
+   replacing libnfsidmap                             x86_64 1:2.8.7-4.fc44               updates                170.1 KiB
+ libomp                                              x86_64 0:22.1.8-1.fc44              updates                  2.9 MiB
+   replacing libomp                                  x86_64 0:22.1.7-1.fc44              updates                  2.9 MiB
+ libomp-devel                                        x86_64 0:22.1.8-1.fc44              updates                  2.9 MiB
+   replacing libomp-devel                            x86_64 0:22.1.7-1.fc44              updates                  2.9 MiB
+ libportal                                           x86_64 0:0.10.0-1.fc44              updates                244.5 KiB
+   replacing libportal                               x86_64 0:0.9.1-6.fc44               updates                228.7 KiB
+ libportal-gtk3                                      x86_64 0:0.10.0-1.fc44              updates                 27.8 KiB
+   replacing libportal-gtk3                          x86_64 0:0.9.1-6.fc44               updates                 27.8 KiB
+ libportal-gtk4                                      x86_64 0:0.10.0-1.fc44              updates                 27.8 KiB
+   replacing libportal-gtk4                          x86_64 0:0.9.1-6.fc44               updates                 27.8 KiB
+ librados2                                           x86_64 2:20.2.2-1.fc44              updates                 16.0 MiB
+   replacing librados2                               x86_64 2:20.2.1-1.fc44              <unknown>               16.0 MiB
+ librbd1                                             x86_64 2:20.2.2-1.fc44              updates                 12.9 MiB
+   replacing librbd1                                 x86_64 2:20.2.1-1.fc44              <unknown>               12.8 MiB
+ libsane-hpaio                                       x86_64 0:3.26.4-6.fc44              updates                185.3 KiB
+   replacing libsane-hpaio                           x86_64 0:3.26.4-2.fc44              updates                185.3 KiB
+ libsmartcols                                        x86_64 0:2.41.5-1.fc44              updates                188.3 KiB
+   replacing libsmartcols                            x86_64 0:2.41.4-8.fc44              updates                188.3 KiB
+ libssh2                                             x86_64 0:1.11.1-9.fc44              updates                338.6 KiB
+   replacing libssh2                                 x86_64 0:1.11.1-6.fc44              updates                338.6 KiB
+ libuuid                                             x86_64 0:2.41.5-1.fc44              updates                 37.2 KiB
+   replacing libuuid                                 x86_64 0:2.41.4-8.fc44              updates                 37.2 KiB
+ libwinpr                                            x86_64 2:3.27.1-1.fc44              updates                  1.3 MiB
+   replacing libwinpr                                x86_64 2:3.26.0-4.fc44              updates                  1.2 MiB
+ llvm-filesystem                                     x86_64 0:22.1.8-1.fc44              updates                  0.0   B
+   replacing llvm-filesystem                         x86_64 0:22.1.7-1.fc44              updates                  0.0   B
+ llvm-libs                                           x86_64 0:22.1.8-1.fc44              updates                140.5 MiB
+   replacing llvm-libs                               x86_64 0:22.1.7-1.fc44              updates                140.5 MiB
+ mariadb-connector-c                                 x86_64 0:3.4.9-1.fc44               updates                501.4 KiB
+   replacing mariadb-connector-c                     x86_64 0:3.4.8-3.fc44               <unknown>              523.0 KiB
+ mariadb-connector-c-config                          noarch 0:3.4.9-1.fc44               updates                 26.4 KiB
+   replacing mariadb-connector-c-config              noarch 0:3.4.8-3.fc44               <unknown>              497.0   B
+ mesa-dri-drivers                                    x86_64 0:26.1.3-1.fc44              updates                 52.3 MiB
+   replacing mesa-dri-drivers                        x86_64 0:26.0.8-1.fc44              updates                 51.1 MiB
+ mesa-filesystem                                     x86_64 0:26.1.3-1.fc44              updates                  3.6 KiB
+   replacing mesa-filesystem                         x86_64 0:26.0.8-1.fc44              updates                  3.6 KiB
+ mesa-libEGL                                         x86_64 0:26.1.3-1.fc44              updates                394.4 KiB
+   replacing mesa-libEGL                             x86_64 0:26.0.8-1.fc44              updates                394.4 KiB
+ mesa-libGL                                          x86_64 0:26.1.3-1.fc44              updates                374.1 KiB
+   replacing mesa-libGL                              x86_64 0:26.0.8-1.fc44              updates                374.0 KiB
+ mesa-libgbm                                         x86_64 0:26.1.3-1.fc44              updates                 19.5 KiB
+   replacing mesa-libgbm                             x86_64 0:26.0.8-1.fc44              updates                 19.5 KiB
+ mesa-vulkan-drivers                                 x86_64 0:26.1.3-1.fc44              updates                169.0 MiB
+   replacing mesa-vulkan-drivers                     x86_64 0:26.0.8-1.fc44              updates                159.4 MiB
+ mtr                                                 x86_64 2:0.96-1.fc44                updates                219.0 KiB
+   replacing mtr                                     x86_64 2:0.95-14.fc44               <unknown>              188.6 KiB
+ nfs-client-utils                                    x86_64 1:2.8.7-5.fc44               updates                  0.0   B
+   replacing nfs-client-utils                        x86_64 1:2.8.7-4.fc44               updates                  0.0   B
+ nfs-common-utils                                    x86_64 1:2.8.7-5.fc44               updates                383.3 KiB
+   replacing nfs-common-utils                        x86_64 1:2.8.7-4.fc44               updates                383.4 KiB
+ nfs-utils                                           x86_64 1:2.8.7-5.fc44               updates                604.7 KiB
+   replacing nfs-utils                               x86_64 1:2.8.7-4.fc44               updates                604.7 KiB
+ nfsv3-client-utils                                  x86_64 1:2.8.7-5.fc44               updates                147.6 KiB
+   replacing nfsv3-client-utils                      x86_64 1:2.8.7-4.fc44               updates                147.6 KiB
+ nfsv4-client-utils                                  x86_64 1:2.8.7-5.fc44               updates                 42.0 KiB
+   replacing nfsv4-client-utils                      x86_64 1:2.8.7-4.fc44               updates                 42.0 KiB
+ nspr                                                x86_64 0:4.39.0-2.fc44              updates                327.1 KiB
+   replacing nspr                                    x86_64 0:4.38.2-11.fc44             updates                327.1 KiB
+ nss                                                 x86_64 0:3.125.0-1.fc44             updates                  2.0 MiB
+   replacing nss                                     x86_64 0:3.123.1-1.fc44             updates                  2.0 MiB
+ nss-softokn                                         x86_64 0:3.125.0-1.fc44             updates                  2.0 MiB
+   replacing nss-softokn                             x86_64 0:3.123.1-1.fc44             updates                  2.0 MiB
+ nss-softokn-freebl                                  x86_64 0:3.125.0-1.fc44             updates                998.8 KiB
+   replacing nss-softokn-freebl                      x86_64 0:3.123.1-1.fc44             updates                998.8 KiB
+ nss-sysinit                                         x86_64 0:3.125.0-1.fc44             updates                 17.9 KiB
+   replacing nss-sysinit                             x86_64 0:3.123.1-1.fc44             updates                 17.9 KiB
+ nss-tools                                           x86_64 0:3.125.0-1.fc44             updates                  2.4 MiB
+   replacing nss-tools                               x86_64 0:3.123.1-1.fc44             updates                  2.4 MiB
+ nss-util                                            x86_64 0:3.125.0-1.fc44             updates                212.7 KiB
+   replacing nss-util                                x86_64 0:3.123.1-1.fc44             updates                212.7 KiB
+ pangomm2.48                                         x86_64 0:2.56.2-1.fc44              updates                313.0 KiB
+   replacing pangomm2.48                             x86_64 0:2.56.1-3.fc44              <unknown>              312.3 KiB
+ passt                                               x86_64 0:0^20260611.ga9c61ff-1.fc44 updates                  1.6 MiB
+   replacing passt                                   x86_64 0:0^20260526.g038c51e-1.fc44 updates                  1.4 MiB
+ passt-selinux                                       noarch 0:0^20260611.ga9c61ff-1.fc44 updates                377.8 KiB
+   replacing passt-selinux                           noarch 0:0^20260526.g038c51e-1.fc44 updates                377.8 KiB
+ pciutils                                            x86_64 0:3.15.0-1.fc44              updates                300.5 KiB
+   replacing pciutils                                x86_64 0:3.14.0-3.fc44              <unknown>              287.6 KiB
+ pciutils-libs                                       x86_64 0:3.15.0-1.fc44              updates                 99.3 KiB
+   replacing pciutils-libs                           x86_64 0:3.14.0-3.fc44              <unknown>               99.3 KiB
+ perf                                                x86_64 0:7.0.13-200.fc44            updates                 13.6 MiB
+   replacing perf                                    x86_64 0:7.0.12-201.fc44            updates                 13.6 MiB
+ perl-Compress-Raw-Bzip2                             x86_64 0:2.218-1.fc44               updates                 72.7 KiB
+   replacing perl-Compress-Raw-Bzip2                 x86_64 0:2.217-1.fc44               fedora                  67.8 KiB
+ perl-HTTP-Message                                   noarch 0:7.02-1.fc44                updates                215.7 KiB
+   replacing perl-HTTP-Message                       noarch 0:7.01-2.fc44                fedora                 215.4 KiB
+ perl-IO-Compress                                    noarch 0:2.221-1.fc44               updates                  1.0 MiB
+   replacing perl-IO-Compress                        noarch 0:2.217-1.fc44               fedora                   1.0 MiB
+ perl-Socket                                         x86_64 4:2.041-1.fc44               updates                120.7 KiB
+   replacing perl-Socket                             x86_64 4:2.040-3.fc44               <unknown>              120.1 KiB
+ perl-URI                                            noarch 0:5.35-1.fc44                updates                268.2 KiB
+   replacing perl-URI                                noarch 0:5.34-3.fc44                <unknown>              268.0 KiB
+ pipewire                                            x86_64 0:1.6.7-1.fc44               updates                456.0 KiB
+   replacing pipewire                                x86_64 0:1.6.6-1.fc44               updates                453.8 KiB
+ pipewire-alsa                                       x86_64 0:1.6.7-1.fc44               updates                157.7 KiB
+   replacing pipewire-alsa                           x86_64 0:1.6.6-1.fc44               updates                157.7 KiB
+ pipewire-config-raop                                x86_64 0:1.6.7-1.fc44               updates                 35.0   B
+   replacing pipewire-config-raop                    x86_64 0:1.6.6-1.fc44               updates                 35.0   B
+ pipewire-gstreamer                                  x86_64 0:1.6.7-1.fc44               updates                185.2 KiB
+   replacing pipewire-gstreamer                      x86_64 0:1.6.6-1.fc44               updates                185.2 KiB
+ pipewire-jack-audio-connection-kit                  x86_64 0:1.6.7-1.fc44               updates                 30.0   B
+   replacing pipewire-jack-audio-connection-kit      x86_64 0:1.6.6-1.fc44               updates                 30.0   B
+ pipewire-jack-audio-connection-kit-libs             x86_64 0:1.6.7-1.fc44               updates                520.4 KiB
+   replacing pipewire-jack-audio-connection-kit-libs x86_64 0:1.6.6-1.fc44               updates                520.2 KiB
+ pipewire-libs                                       x86_64 0:1.6.7-1.fc44               updates                  9.7 MiB
+   replacing pipewire-libs                           x86_64 0:1.6.6-1.fc44               updates                  9.7 MiB
+ pipewire-plugin-libcamera                           x86_64 0:1.6.7-1.fc44               updates                146.5 KiB
+   replacing pipewire-plugin-libcamera               x86_64 0:1.6.6-1.fc44               updates                146.5 KiB
+ pipewire-pulseaudio                                 x86_64 0:1.6.7-1.fc44               updates                464.2 KiB
+   replacing pipewire-pulseaudio                     x86_64 0:1.6.6-1.fc44               updates                464.1 KiB
+ pipewire-utils                                      x86_64 0:1.6.7-1.fc44               updates                  1.5 MiB
+   replacing pipewire-utils                          x86_64 0:1.6.6-1.fc44               updates                  1.5 MiB
+ plasma-activities                                   x86_64 0:6.7.1-1.fc44               updates                524.2 KiB
+   replacing plasma-activities                       x86_64 0:6.6.5-1.fc44               updates                524.3 KiB
+ plasma-activities-stats                             x86_64 0:6.7.1-1.fc44               updates                399.7 KiB
+   replacing plasma-activities-stats                 x86_64 0:6.6.5-1.fc44               updates                399.7 KiB
+ podman                                              x86_64 5:5.8.3-1.fc44               updates                 49.1 MiB
+   replacing podman                                  x86_64 5:5.8.2-1.fc44               <unknown>               49.0 MiB
+ pugixml                                             x86_64 0:1.16-1.fc44                updates                286.6 KiB
+   replacing pugixml                                 x86_64 0:1.15-2.fc44                <unknown>              278.6 KiB
+ python-unversioned-command                          noarch 0:3.14.6-1.fc44              updates                 23.0   B
+   replacing python-unversioned-command              noarch 0:3.14.5-1.fc44              updates                 23.0   B
+ python3                                             x86_64 0:3.14.6-1.fc44              updates                 28.7 KiB
+   replacing python3                                 x86_64 0:3.14.5-1.fc44              updates                 28.7 KiB
+ python3-devel                                       x86_64 0:3.14.6-1.fc44              updates                  2.0 MiB
+   replacing python3-devel                           x86_64 0:3.14.5-1.fc44              updates                  2.0 MiB
+ python3-langtable                                   noarch 0:0.0.71-1.fc44              updates                  1.7 MiB
+   replacing python3-langtable                       noarch 0:0.0.70-1.fc44              <unknown>                1.7 MiB
+ python3-libmount                                    x86_64 0:2.41.5-1.fc44              updates                120.8 KiB
+   replacing python3-libmount                        x86_64 0:2.41.4-8.fc44              updates                120.6 KiB
+ python3-libs                                        x86_64 0:3.14.6-1.fc44              updates                 43.9 MiB
+   replacing python3-libs                            x86_64 0:3.14.5-1.fc44              updates                 43.8 MiB
+ python3-more-itertools                              noarch 0:10.8.0-1.fc44              updates                777.2 KiB
+   replacing python3-more-itertools                  noarch 0:10.5.0-8.fc44              <unknown>              664.1 KiB
+ python3-perf                                        x86_64 0:7.0.13-200.fc44            updates                 10.0 MiB
+   replacing python3-perf                            x86_64 0:7.0.12-201.fc44            updates                 10.0 MiB
+ python3-pikepdf                                     x86_64 0:10.8.0-1.fc44              updates                  1.8 MiB
+   replacing python3-pikepdf                         x86_64 0:10.7.2-1.fc44              updates                  1.8 MiB
+ python3-regex                                       x86_64 0:2026.5.9-1.fc44            updates                  2.1 MiB
+   replacing python3-regex                           x86_64 0:2026.2.28-1.fc44           <unknown>                2.1 MiB
+ rpcbind                                             x86_64 0:1.2.9-0.fc44               updates                111.7 KiB
+   replacing rpcbind                                 x86_64 0:1.2.8-2.fc44               updates                111.7 KiB
+ ruby                                                x86_64 0:4.0.5-33.fc44              updates                 97.9 KiB
+   replacing ruby                                    x86_64 0:4.0.1-32.fc44              fedora                  97.9 KiB
+ ruby-bundled-gems                                   x86_64 0:4.0.5-33.fc44              updates                  2.6 MiB
+   replacing ruby-bundled-gems                       x86_64 0:4.0.1-32.fc44              fedora                   2.6 MiB
+ ruby-default-gems                                   noarch 0:4.0.5-33.fc44              updates                 64.3 KiB
+   replacing ruby-default-gems                       noarch 0:4.0.1-32.fc44              fedora                  64.2 KiB
+ ruby-libs                                           x86_64 0:4.0.5-33.fc44              updates                 15.4 MiB
+   replacing ruby-libs                               x86_64 0:4.0.1-32.fc44              fedora                  15.4 MiB
+ rubygem-bigdecimal                                  x86_64 0:4.0.1-33.fc44              updates                157.5 KiB
+   replacing rubygem-bigdecimal                      x86_64 0:4.0.1-32.fc44              fedora                 157.5 KiB
+ rubygem-bundler                                     noarch 0:4.0.10-33.fc44             updates                  1.4 MiB
+   replacing rubygem-bundler                         noarch 0:4.0.3-32.fc44              fedora                   1.4 MiB
+ rubygem-io-console                                  x86_64 0:0.8.2-33.fc44              updates                 33.3 KiB
+   replacing rubygem-io-console                      x86_64 0:0.8.2-32.fc44              fedora                  33.3 KiB
+ rubygem-irb                                         noarch 0:1.16.0-33.fc44             updates                342.3 KiB
+   replacing rubygem-irb                             noarch 0:1.16.0-32.fc44             fedora                 342.3 KiB
+ rubygem-json                                        x86_64 0:2.19.9-1.fc44              updates                253.2 KiB
+   replacing rubygem-json                            x86_64 0:2.19.8-1.fc44              updates                253.0 KiB
+ rubygem-psych                                       x86_64 0:5.3.1-33.fc44              updates                142.9 KiB
+   replacing rubygem-psych                           x86_64 0:5.3.1-32.fc44              fedora                 142.9 KiB
+ rubygem-rbs                                         x86_64 0:3.10.0-33.fc44             updates                  5.8 MiB
+   replacing rubygem-rbs                             x86_64 0:3.10.0-32.fc44             fedora                   5.8 MiB
+ rubygem-rdoc                                        noarch 0:7.0.4-33.fc44              updates                  2.2 MiB
+   replacing rubygem-rdoc                            noarch 0:7.0.3-201.fc44             fedora                   2.1 MiB
+ rubygems                                            noarch 0:4.0.10-33.fc44             updates                  1.5 MiB
+   replacing rubygems                                noarch 0:4.0.6-1.fc44               fedora                   1.8 MiB
+ sdl2-compat                                         x86_64 0:2.32.70-1.fc44             updates                412.3 KiB
+   replacing sdl2-compat                             x86_64 0:2.32.68-1.fc44             updates                412.2 KiB
+ sos                                                 noarch 0:4.11.2-1.fc44              updates                  4.3 MiB
+   replacing sos                                     noarch 0:4.11.1-1.fc44              <unknown>                4.2 MiB
+ systemd                                             x86_64 0:259.7-1.fc44               updates                 12.9 MiB
+   replacing systemd                                 x86_64 0:259.6-1.fc44               updates                 12.9 MiB
+ systemd-container                                   x86_64 0:259.7-1.fc44               updates                  2.3 MiB
+   replacing systemd-container                       x86_64 0:259.6-1.fc44               updates                  2.3 MiB
+ systemd-libs                                        x86_64 0:259.7-1.fc44               updates                  2.4 MiB
+   replacing systemd-libs                            x86_64 0:259.6-1.fc44               updates                  2.4 MiB
+ systemd-networkd                                    x86_64 0:259.7-1.fc44               updates                  2.3 MiB
+   replacing systemd-networkd                        x86_64 0:259.6-1.fc44               updates                  2.3 MiB
+ systemd-oomd-defaults                               noarch 0:259.7-1.fc44               updates                115.0   B
+   replacing systemd-oomd-defaults                   noarch 0:259.6-1.fc44               updates                115.0   B
+ systemd-pam                                         x86_64 0:259.7-1.fc44               updates                  1.2 MiB
+   replacing systemd-pam                             x86_64 0:259.6-1.fc44               updates                  1.2 MiB
+ systemd-resolved                                    x86_64 0:259.7-1.fc44               updates                655.3 KiB
+   replacing systemd-resolved                        x86_64 0:259.6-1.fc44               updates                655.4 KiB
+ systemd-shared                                      x86_64 0:259.7-1.fc44               updates                  5.4 MiB
+   replacing systemd-shared                          x86_64 0:259.6-1.fc44               updates                  5.4 MiB
+ systemd-sysusers                                    x86_64 0:259.7-1.fc44               updates                 79.6 KiB
+   replacing systemd-sysusers                        x86_64 0:259.6-1.fc44               updates                 79.6 KiB
+ systemd-udev                                        x86_64 0:259.7-1.fc44               updates                 13.0 MiB
+   replacing systemd-udev                            x86_64 0:259.6-1.fc44               updates                 13.0 MiB
+ util-linux                                          x86_64 0:2.41.5-1.fc44              updates                  3.5 MiB
+   replacing util-linux                              x86_64 0:2.41.4-8.fc44              updates                  3.5 MiB
+ util-linux-core                                     x86_64 0:2.41.5-1.fc44              updates                  1.5 MiB
+   replacing util-linux-core                         x86_64 0:2.41.4-8.fc44              updates                  1.5 MiB
+ uv                                                  x86_64 0:0.11.21-4.fc44             updates                 45.2 MiB
+   replacing uv                                      x86_64 0:0.11.15-1.fc44             updates                 44.0 MiB
+ vim-data                                            noarch 2:9.2.725-1.fc44             updates                 10.2 KiB
+   replacing vim-data                                noarch 2:9.2.597-1.fc44             updates                 10.2 KiB
+ vim-filesystem                                      noarch 2:9.2.725-1.fc44             updates                 40.0   B
+   replacing vim-filesystem                          noarch 2:9.2.597-1.fc44             updates                 40.0   B
+ vim-minimal                                         x86_64 2:9.2.725-1.fc44             updates                  1.8 MiB
+   replacing vim-minimal                             x86_64 2:9.2.597-1.fc44             updates                  1.8 MiB
+ xdg-desktop-portal                                  x86_64 0:1.22.1-1.fc44              updates                  1.9 MiB
+   replacing xdg-desktop-portal                      x86_64 0:1.22.0-1.fc44              updates                  1.9 MiB
+ xen-libs                                            x86_64 0:4.21.1-4.fc44              updates                  1.8 MiB
+   replacing xen-libs                                x86_64 0:4.21.1-3.fc44              updates                  1.8 MiB
+ xen-licenses                                        x86_64 0:4.21.1-4.fc44              updates                290.2 KiB
+   replacing xen-licenses                            x86_64 0:4.21.1-3.fc44              updates                290.2 KiB
+ xxd                                                 x86_64 2:9.2.725-1.fc44             updates                 33.3 KiB
+   replacing xxd                                     x86_64 2:9.2.597-1.fc44             updates                 33.3 KiB
+Installing:
+ kernel                                              x86_64 0:7.0.13-200.fc44            updates                  0.0   B
+ kernel-core                                         x86_64 0:7.0.13-200.fc44            updates                 99.1 MiB
+ kernel-devel                                        x86_64 0:7.0.13-200.fc44            updates                 86.5 MiB
+ kernel-modules                                      x86_64 0:7.0.13-200.fc44            updates                 99.5 MiB
+ kernel-modules-core                                 x86_64 0:7.0.13-200.fc44            updates                 72.9 MiB
+ kernel-modules-extra                                x86_64 0:7.0.13-200.fc44            updates                  4.4 MiB
+
+Transaction Summary:
+ Installing:         6 packages
+ Upgrading:        215 packages
+ Replacing:        215 packages
+ Removing:           6 packages
+

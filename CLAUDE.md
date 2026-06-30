@@ -41,11 +41,14 @@ Everything lives in `src/main.rs`. No modules, no workspace.
 **Upgrade flow:**
 
 1. `check_updates()` — spawns `dnf upgrade --assumeno --color=never`; reads stderr in a background thread (spinner + size parsing) while stdout is collected; returns `(Vec<PackageUpdate>, SizeInfo)`
-2. `parse_update_lines()` — returns `Result<Vec<PackageUpdate>>`; walks the transaction table on stdout with a strict state machine:
-   - Non-space lines change the active section; `Upgrading:` enters upgrade-parsing mode
-   - Inside `Upgrading:`: 1-space-prefixed lines are package lines (exactly 6 whitespace-delimited fields: name, arch, version, repo, size-number, size-unit)
-   - Each package line must be immediately followed by a `   replacing ` sub-line (3 spaces + "replacing ") with ≥4 fields whose first field matches the package name
-   - Any deviation (wrong field count, missing/orphan replacing line, name mismatch) is a hard error — this surfaces dnf output format changes immediately rather than silently misbehaving
+2. `parse_update_lines()` — returns `Result<Vec<PackageUpdate>>`; parses the **entire** stdout transaction table with an explicit, fully strict state machine (`TableParser` + `enum State`). Every line must match the pattern the current state expects; there is no "ignore unrecognized lines" path. States: `Header` (column header / `Nothing to do.` / blanks) → `ExpectSection` → `Section { group, upgrading }` → `Replacing { name }` (only inside `Upgrading:`) → `SummaryHeader` → `Summary` → `End`. Line patterns:
+   - Column header: `Package Arch Version Repository Size` (exact token set)
+   - Section header: column-0 line ending in `:`; mapped to a summary bucket via `summary_group()` (Installing / Upgrading / Downgrading / Reinstalling / Removing, incl. their "dependencies"/"dependent"/"unused" variants). An unknown header is a hard error.
+   - Package line: single-space indent, exactly 6 whitespace fields (name, arch, version, repo, size-number, size-unit). Counted per summary bucket; only `Upgrading:` rows become `PackageUpdate`s.
+   - `replacing` sub-line: 3-space indent + `replacing `, exactly 6 fields, first field must equal the package just seen; required after every `Upgrading:` package line and forbidden elsewhere.
+   - Transaction Summary: ` Label: N package(s)` lines after a blank line; parsed into per-label counts.
+   - `finish()` validates the terminal state (output must reach the summary, or be empty) and **cross-checks** the summary: the parsed per-bucket section counts plus the total `replacing`-line count (the `Replacing` bucket) must exactly equal the Transaction Summary counts.
+   - Any deviation (wrong field count, missing/orphan replacing line, name mismatch, unknown section header, truncated output, summary/section count disagreement) is a hard error — this surfaces dnf output format changes immediately rather than silently misbehaving. Covered by unit tests in `src/main.rs`, including a real captured transaction in `src/testdata/dnf_upgrade_stdout.txt`.
 3. `display_updates()` prints an aligned table; `highlight_diff()` finds the common prefix and suffix between two strings and colors only the differing middle segment — used for both version and repo diffs
 4. After Y/n confirmation, `do_upgrade()` runs `dnf upgrade -y` with explicit `name-[epoch:]version-release.arch` specs built from the displayed package list — only the packages shown, at the exact versions shown
 

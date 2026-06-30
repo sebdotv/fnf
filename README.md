@@ -69,7 +69,11 @@ fnf upgrade --group none
 
 1. Runs `dnf upgrade --assumeno --color=never` — no root needed, no changes made
 2. Shows a spinner while repositories load; suppresses dnf's repo-loading noise
-3. Parses the transaction table and displays a compact diff table
+3. Parses the **entire** transaction table with a fully strict state machine — every line must match the pattern
+   expected in its state (column header, section headers, package lines, `replacing` sub-lines, and the Transaction
+   Summary), and the summary counts are cross-checked against the parsed sections. Any unrecognized line or mismatch is
+   a hard error, so a change in dnf's output format surfaces immediately rather than being silently misparsed. Then it
+   displays a compact diff table.
 4. Prompts for confirmation
 5. On Y: runs `dnf upgrade -y pkg-version.arch …` with the exact package specs shown — no surprise upgrades if new
    versions appeared since the check
